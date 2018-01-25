@@ -18,20 +18,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEa-l9-DBR">
-                                <rect key="frame" x="190" y="123" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ueN-Op-fVj">
+                                <rect key="frame" x="88" y="208.5" width="199" height="250"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3uJ-UF-PTi">
+                                        <rect key="frame" x="15.5" y="0.0" width="168" height="30"/>
+                                        <state key="normal" title="AsyncTaskInSerialQueue">
+                                            <color key="titleColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doLongAsyncTaskInSerialQueue" destination="BYZ-38-t0r" eventType="touchUpInside" id="QwO-AS-hat"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrM-qn-HPu">
+                                        <rect key="frame" x="19.5" y="55" width="160" height="30"/>
+                                        <state key="normal" title="SyncTaskInSerialQueue">
+                                            <color key="titleColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doLongSyncTaskInSerialQueue" destination="BYZ-38-t0r" eventType="touchUpInside" id="pVd-fC-9wn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svI-kz-MAr">
+                                        <rect key="frame" x="0.0" y="110" width="199" height="30"/>
+                                        <state key="normal" title="SyncTaskInConcurrentQueue">
+                                            <color key="titleColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doLongASyncTaskInConcurrentQueue" destination="BYZ-38-t0r" eventType="touchUpInside" id="eUl-t3-khe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vu-wI-5sF">
+                                        <rect key="frame" x="0.0" y="165" width="199" height="30"/>
+                                        <state key="normal" title="SyncTaskInConcurrentQueue">
+                                            <color key="titleColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doLongSyncTaskInConcurrentQueue" destination="BYZ-38-t0r" eventType="touchUpInside" id="CFG-ag-JZ8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTe-G5-sZc">
+                                        <rect key="frame" x="55" y="220" width="89" height="30"/>
+                                        <state key="normal" title="NSOperation">
+                                            <color key="titleColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="NSOperationQueue:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YnR-JF-ITa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1AR-2t-EBL">
+                                <rect key="frame" x="166.5" y="473.5" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ueN-Op-fVj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9Mg-bV-7Zh"/>
+                            <constraint firstItem="1AR-2t-EBL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GyI-fZ-DaQ"/>
+                            <constraint firstItem="1AR-2t-EBL" firstAttribute="top" secondItem="ueN-Op-fVj" secondAttribute="bottom" constant="15" id="gzx-Fw-vAL"/>
+                            <constraint firstItem="ueN-Op-fVj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qAD-uE-k3J"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="textLabel" destination="1AR-2t-EBL" id="ypU-F6-y4E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="32.833583208395808"/>
         </scene>
     </scenes>
 </document>
